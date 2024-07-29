@@ -1,15 +1,22 @@
-Feature: Potion of Size Change
+# Feature: Staying alive
 
-  Scenario Outline: Drinking the Potion of Size Change
-    Given a <creature_size> creature drinks the Potion of Size Change
-    When 2 hours have passed
-    Then the creature's size is changed to <new_size>
-    And after 2 hours, the creature's size is reverted back to <creature_size>
+This is about actually staying alive,
+not the [Bee Gees song](https://www.youtube.com/watch?v=I_izvAbhExY).
 
-    Examples:
-      | creature_size | new_size |
-      | tiny          | normal   |
-      | normal        | large    |
-      | large         | huge     |
-      | huge          | tiny     |
+## Rule: If you don't eat you die
 
+![xkcd](https://imgs.xkcd.com/comics/lunch_2x.png)
+
+`@important` `@essential`
+### Scenario Outline: eating
+
+* Given there are <start> cucumbers
+* When I eat <eat> cucumbers
+* Then I should have <left> cucumbers
+
+#### Examples:
+
+  | start | eat | left |
+  | ----- | --- | ---- |
+  |    12 |   5 |    7 |
+  |    20 |   5 |   15 |
