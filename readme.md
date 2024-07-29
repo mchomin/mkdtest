@@ -1,25 +1,15 @@
-1.  List item one.
+Feature: Potion of Size Change
 
-    List item one continued with a second paragraph followed by an
-    Indented block.
+  Scenario Outline: Drinking the Potion of Size Change
+    Given a <creature_size> creature drinks the Potion of Size Change
+    When 2 hours have passed
+    Then the creature's size is changed to <new_size>
+    And after 2 hours, the creature's size is reverted back to <creature_size>
 
-        $ ls *.sh
-        $ mv *.sh ~/tmp
+    Examples:
+      | creature_size | new_size |
+      | tiny          | normal   |
+      | normal        | large    |
+      | large         | huge     |
+      | huge          | tiny     |
 
-    List item continued with a third paragraph.
-
-2.  List item two continued with an open block.
-
-    This paragraph is part of the preceding list item.
-
-    1. This list is nested and does not require explicit item continuation.
-
-       This paragraph is part of the preceding list item.
-
-    2. List item b.
-
-    This paragraph belongs to item two of the outer list.
-
-| foo | bar |
-| --- | --- |
-| baz | bim |
